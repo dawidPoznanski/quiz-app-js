@@ -24,7 +24,6 @@ fetch(
       const formattedQuestion = {
         question: loadedQuestions.question,
       };
-
       const answerChoices = [...loadedQuestions.incorrect_answers];
       formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
       answerChoices.splice(
@@ -36,7 +35,6 @@ fetch(
       answerChoices.forEach((choice, index) => {
         formattedQuestion['choice' + (index + 1)] = choice;
       });
-
       return formattedQuestion;
     });
 
@@ -73,11 +71,11 @@ getNewQuestion = () => {
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
-  question.innerText = currentQuestion.question;
+  question.innerHTML = currentQuestion.question;
 
   choices.forEach((choice) => {
     const number = choice.dataset['number'];
-    choice.innerText = currentQuestion['choice' + number];
+    choice.innerHTML = currentQuestion['choice' + number];
   });
   availableQuestions.splice(questionIndex, 1);
   acceptingAnswers = true;
