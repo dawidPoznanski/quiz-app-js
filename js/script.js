@@ -17,11 +17,9 @@ fetch(
   'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
 )
   .then((res) => {
-    console.log(res);
     return res.json();
   })
   .then((loadedQuestions) => {
-    console.log(loadedQuestions.results);
     questions = loadedQuestions.results.map((loadedQuestions) => {
       const formattedQuestion = {
         question: loadedQuestions.question,
@@ -114,5 +112,4 @@ choices.forEach((choice) => {
 incrementScore = (num) => {
   score += num;
   scoreText.innerText = score;
-  console.log(typeof score);
 };
